@@ -1,0 +1,51 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+
+body > header{
+    position: fixed;
+    width:100%
+}
+
+body > footer{
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 0;
+  z-index: 1000;
+}
+
+.nav-button{
+    
+    margin-left:-25px;
+    width: 100px;
+}
+
+.nav-icon{
+    margin-left:25px;
+}
+    
+.w3-left, .w3-right, .w3-badge {cursor:pointer}
+.w3-badge {height:13px;width:13px;padding:0}
+
+#slider {
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+
+    }
+
+#logo{
+    height:60px;
+    width: auto;
+}
+
+.gun{
+    margin-bottom:64px;
+}
+
+a{
+    text-decoration: none;
+}

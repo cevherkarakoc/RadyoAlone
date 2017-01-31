@@ -2,26 +2,450 @@
 <html>
 
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>React - Template</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Radyo Alone</title>
+    <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+    <link rel="stylesheet" href="http://www.w3schools.com/lib/w3-theme-purple.css">
+    <link rel='stylesheet' href='./css/style.css' />
+    <link rel='stylesheet' href='./css/slider.css' />
 
-  <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
-  <script src="https://unpkg.com/react@15/dist/react.min.js"></script>
-  <script src="https://unpkg.com/react-dom@15/dist/react-dom.min.js"></script>
-  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+    <link href="./dist/skin/blue.monday/css/jplayer.blue.monday.min.css" rel="stylesheet" type="text/css" />
+    <link rel='stylesheet' href='./css/player.css' />
+
+    <script src="https://use.fontawesome.com/5341fa64c9.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script type="text/javascript" src="./dist/jplayer/jquery.jplayer.min.js"></script>
+
+    <script>
+    (function (i, s, o, g, r, a, m) {
+    i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+        (i[r].q = i[r].q || []).push(arguments)
+    }, i[r].l = 1 * new Date(); a = s.createElement(o),
+        m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+    ga('create', 'UA-65332149-2', 'auto');
+    ga('send', 'pageview');
+
+    </script>
+    <script type="text/javascript">
+        //<![CDATA[
+        $(document).ready(function () {
+
+
+            var stream = {
+                title: "Radyo Alone",
+                mp3: "http://yayin.radyoalone.com:29680/;stream"
+            },
+                ready = false;
+
+            $("#jquery_jplayer_1").jPlayer({
+                ready: function (event) {
+                    ready = true;
+                    $(this).jPlayer("setMedia", stream);
+                    $(this).jPlayer("play");
+                },
+                pause: function () {
+                    $(this).jPlayer("clearMedia");
+                },
+                error: function (event) {
+                    if (ready && event.jPlayer.error.type === $.jPlayer.error.URL_NOT_SET) {
+                        // Setup the media stream again and play it.
+                        $(this).jPlayer("setMedia", stream).jPlayer("play");
+                    }
+                },
+                nativeVideoControls: {
+                    ipad: /ipad/,
+                    iphone: /iphone/,
+                    android: /android/,
+                    blackberry: /blackberry/,
+                    iemobile: /iemobile/
+                },
+                solution: "flash, html",
+                swfPath: "./dist/jplayer",
+                supplied: "mp3",
+                preload: "none",
+                wmode: "window",
+                useStateClassSkin: true,
+                autoBlur: false,
+                autoPlay: true,
+                keyEnabled: true
+            });
+
+        });
+    //]]>
+    </script>
+
+
 </head>
 
-<body>
+<body id="myBody">
 
-  <div id="container"></div>
+    <ul class="cb-slideshow">
+        <li><span>Image 01</span></li>
+        <li><span>Image 02</span></li>
+        <li><span>Image 03</span></li>
+        <li><span>Image 04</span></li>
+    </ul>
 
-  <script type="text/babel">
-        ReactDOM.render(
-            <h2>Radyo Alone</h2>,
-            document.getElementById('container')
-        );
+
+    <header>
+
+        <div class="w3-container w3-padding w3-theme w3-card-8" style="background-color:rgba(155, 39, 176, 0.2) !important" >
+<div class="w3-row">
+
+    <div class="w3-col l9 m9 s5">
+        <img id="logo" src="./images/logo/logo-unew.png">
+    </div>
+
+    <div class="w3-col l2 m2 s5">
+        <button class="w3-btn w3-indigo w3-round-xxlarge">
+				<a href="http://radyoalone.radiostream321.com/">Alternatif <br> Link</a>
+				</button>
+    </div>
+    <div class="w3-col l1 m1 s2">
+        <div id="jquery_jplayer_1" class="jp-jplayer"></div>
+        <div id="jp_container_1" class="jp-audio-stream" role="application" aria-label="media player">
+            <div class="jp-type-single">
+                <div class="jp-gui jp-interface">
+                    <div class="jp-controls">
+                        <button class="jp-play" role="button" tabindex="0">play</button>
+                    </div>
+                </div>
+
+                <div class="jp-no-solution">
+                    <span>Update Required</span> To play the media you will need to either update your browser to a recent
+                    version or update your <a href="http://get.adobe.com/flashplayer/" target="_blank">Flash plugin</a>.
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+</div>
+
+</header>
+
+<nav class="w3-sidenav w3-theme" style="width:100px; background-color:rgba(0, 0, 0, 0) !important; margin-top:115px">
+    <button onclick="document.getElementById('akis').style.display='block'" class="w3-btn w3-margin-top w3-theme w3-round-jumbo nav-button"><i class="fa fa-calendar w3-xxlarge nav-icon"></i></button>
+    <button onclick="document.getElementById('yayincilar').style.display='block'" class="w3-btn w3-margin-top w3-theme w3-round-jumbo nav-button"><i class="fa fa-users w3-xxlarge nav-icon"></i></button>
+    <button onclick="document.getElementById('iletisim').style.display='block'" class="w3-btn w3-margin-top w3-theme w3-round-jumbo nav-button"><i class="fa fa-heart w3-xxlarge nav-icon"></i></button>
+</nav>
+
+<!--
+        <footer>
+        <div class="w3-container w3-theme-dark w3-center">
+
+        </div>
+        </footer>-->
+
+<!-- Yayın Akışı Modal -->
+<div id="akis" class="w3-modal">
+    <div class="w3-modal-content w3-animate-zoom w3-card-24">
+        <header class="w3-container w3-deep-orange">
+            <span onclick="document.getElementById('akis').style.display='none'" class="w3-closebtn">&times;
+</span>
+<h2>Yayın Akışı</h2>
+</header>
+<div class="w3-container  w3-theme-light">
+    <ul class="w3-navbar w3-margin-top w3-theme-l2">
+        <!--<li><a href="#" onclick="akisGunu(event,'carsamba')" id="firstGun" class="gunlink">Çarşamba</a></li>-->
+        <li>
+            <a href="#" onclick="akisGunu(event,'persembe')" id="firstGun" class="gunlink">Perşembe</a>
+</li>
+<li>
+    <a href="#" onclick="akisGunu(event,'cuma')" class="gunlink">Cuma</a>
+</li>
+<li>
+    <a href="#" onclick="akisGunu(event,'cumartesi')" class="gunlink">Cumartesi</a>
+</li>
+</ul>
+
+<!--<div id="carsamba" class="gun">
+              <table class="w3-table w3-bordered w3-striped w3-card-4">
+                <tr class="w3-deep-orange">
+                  <th>Saat</th>
+                  <th>Program</th>
+                </tr>
+                <tr>
+                  <td>21:00</td>
+                  <td>Aykut KÖYBAŞI ve İbrahim DİNÇ ile Lise Günlüğü</td>
+                </tr>
+              </table>
+            </div>-->
+
+<div id="persembe" class="gun">
+    <table class="w3-table w3-bordered w3-striped w3-card-4">
+        <tr class="w3-deep-orange">
+            <th>Saat</th>
+            <th>Program</th>
+        </tr>
+        <tr>
+            <td>21:00</td>
+            <td>Salih KARPUZ ile İtiraflar</td>
+        </tr>
+        <tr>
+            <td>22:00</td>
+            <td>Salih KARPUZ ile İtiraflar</td>
+        </tr>
+        <tr>
+            <td>23:00</td>
+            <td>Nostaljik Kırıntılar</td>
+        </tr>
+        <tr>
+            <td>00:00</td>
+            <td>Nostaljik Kırıntılar</td>
+        </tr>
+    </table>
+</div>
+
+<div id="cuma" class="gun">
+    <table class="w3-table w3-bordered w3-striped w3-card-4">
+        <tr class="w3-deep-orange">
+            <th>Saat</th>
+            <th>Program</th>
+        </tr>
+
+        <tr>
+            <td>23:00</td>
+            <td>Nostaljik Kırıntılar</td>
+        </tr>
+        <tr>
+            <td>00:00</td>
+            <td>Nostaljik Kırıntılar</td>
+        </tr>
+    </table>
+</div>
+
+<div id="cumartesi" class="gun">
+    <table class="w3-table w3-bordered w3-striped w3-card-4">
+        <tr class="w3-deep-orange">
+            <th>Saat</th>
+            <th>Program</th>
+        </tr>
+        <tr>
+            <td>00:00</td>
+            <td>Salih Karpuz ve Aydın KABAAĞIL ile Son Demler</td>
+        </tr>
+        <tr>
+            <td>01:00</td>
+            <td>Salih Karpuz ve Aydın KABAAĞIL ile Son Demler</td>
+        </tr>
+        <tr>
+            <td>02:00</td>
+            <td>Salih Karpuz ve Aydın KABAAĞIL ile Son Demler</td>
+        </tr>
+    </table>
+</div>
+
+
+</div>
+</div>
+</div>
+
+
+<!-- Yayıncılar Modal -->
+<div id="yayincilar" class="w3-modal">
+    <div class="w3-modal-content w3-animate-zoom w3-card-24">
+        <header class="w3-container w3-deep-orange">
+            <span onclick="document.getElementById('yayincilar').style.display='none'" class="w3-closebtn">&times;
+</span>
+<h2>Yayıncılar</h2>
+</header>
+<div class="w3-container w3-theme-light">
+    <div class="w3-row w3-margin">
+        <div class="w3-container w3-third">
+            <div class="w3-card-4">
+                <img src="./images/streamer/karpuz.jpg" style="width:100%">
+<div class="w3-container w3-white w3-center">
+    <h4><b>Salih KARPUZ</b></h4>
+    <a href="https://www.facebook.com/salih.karpuz" target="_blank"><i class="fa fa-facebook w3-margin  w3-opacity "></i></a>
+    <a href="https://twitter.com/salihkarpuz" target="_blank"><i class="fa fa-twitter w3-margin  w3-opacity "></i></a>
+    <a href="https://www.instagram.com/salihkarpuz" target="_blank"><i class="fa fa-instagram w3-margin  w3-opacity "></i></a>
+</div>
+
+</div>
+</div>
+<div class="w3-container w3-third">
+    <div class="w3-card-4">
+        <img src="./images/streamer/ulas.jpg" style="width:100%">
+<div class="w3-container w3-white w3-center">
+    <h4><b>Ulaş Deniz TÜMKAYA</b></h4>
+    <a href="https://www.facebook.com/ulasdeniz.tumkaya" target="_blank"><i class="fa fa-facebook w3-margin  w3-opacity "></i></a>
+    <a href="https://twitter.com/ulsdnztmky" target="_blank"><i class="fa fa-twitter w3-margin  w3-opacity "></i></a>
+    <a href="https://www.instagram.com/ulasdeniztumkaya" target="_blank"><i class="fa fa-instagram w3-margin  w3-opacity "></i></a>
+    <a href="https://aklimdagunbatimi.wordpress.com/" target="_blank"><i class="fa fa-wordpress  w3-margin  w3-opacity "></i></a>
+</div>
+
+</div>
+</div>
+<div class="w3-container w3-third">
+    <div class="w3-card-4">
+        <img src="./images/streamer/verda.jpg" style="width:100%">
+<div class="w3-container w3-white w3-center">
+    <h4><b>Verda KODAMAN</b></h4>
+    <a href="https://www.facebook.com/gul.kodaman" target="_blank"><i class="fa fa-facebook w3-margin  w3-opacity "></i></a>
+    <a href="https://www.instagram.com/verdakodaman/" target="_blank"><i class="fa fa-instagram w3-margin  w3-opacity "></i></a>
+</div>
+
+</div>
+</div>
+</div>
+
+
+<div class="w3-row w3-margin">
+    <div class="w3-container w3-third">
+        <div class="w3-card-4">
+            <img src="./images/streamer/aykut.jpg" style="width:100%">
+<div class="w3-container w3-white w3-center">
+    <h4><b>N. Aykut KÖYBAŞI</b></h4>
+    <a href="https://www.facebook.com/nurettin.koybasi" target="_blank"><i class="fa fa-facebook w3-margin  w3-opacity "></i></a>
+    <a href="https://www.instagram.com/aykut.koybas/" target="_blank"><i class="fa fa-instagram w3-margin  w3-opacity "></i></a>
+</div>
+
+</div>
+</div>
+<div class="w3-container w3-third">
+    <div class="w3-card-4">
+        <img src="./images/streamer/cetinkaya2.jpg" style="width:100%">
+<div class="w3-container w3-white w3-center">
+    <h4><b>Merve ÇETİNKAYA</b></h4>
+    <a href="https://www.facebook.com/merve.cetinkaya.3576" target="_blank"><i class="fa fa-facebook w3-margin  w3-opacity "></i></a>
+    <a href="https://twitter.com/mervectnkyaa" target="_blank"><i class="fa fa-twitter w3-margin  w3-opacity "></i></a>
+    <a href="https://www.instagram.com/mervctnkya/" target="_blank"><i class="fa fa-instagram w3-margin  w3-opacity "></i></a>
+</div>
+
+</div>
+</div>
+<div class="w3-container w3-third">
+    <div class="w3-card-4">
+        <img src="./images/streamer/dinc.jpg" style="width:100%">
+<div class="w3-container w3-white w3-center">
+    <h4><b>İbrahim DİNÇ</b></h4>
+    <a href="https://www.facebook.com/ibrahim.e.dinc.7" target="_blank"><i class="fa fa-facebook w3-margin  w3-opacity "></i></a>
+    <a href="https://twitter.com/davulcu07" target="_blank"><i class="fa fa-twitter w3-margin  w3-opacity "></i></a>
+    <a href="https://www.instagram.com/davulcu07" target="_blank"><i class="fa fa-instagram w3-margin  w3-opacity "></i></a>
+</div>
+
+</div>
+</div>
+</div>
+
+<div class="w3-row w3-margin">
+    <div class="w3-container w3-third">
+        <div class="w3-card-4">
+            <img src="./images/streamer/poseidon.jpg" style="width:100%">
+<div class="w3-container w3-white w3-center">
+    <h4><b>Mustafa Öngün</b></h4>
+    <a href="https://www.facebook.com/JackThatBody" target="_blank"><i class="fa fa-facebook w3-margin  w3-opacity "></i></a>
+    <a href="https://twitter.com/Posseidon_9" target="_blank"><i class="fa fa-twitter w3-margin  w3-opacity "></i></a>
+    <a href="https://www.instagram.com/music_by_poseidon" target="_blank"><i class="fa fa-instagram w3-margin  w3-opacity "></i></a>
+</div>
+</div>
+</div>
+
+
+<div class="w3-container w3-third">
+    <div class="w3-card-4">
+        <img src="./images/streamer/kabaagil.jpg" style="width:100%">
+<div class="w3-container w3-white w3-center">
+    <h4><b>Aydın M. KABAAĞIL</b></h4>
+    <a href="https://www.facebook.com/profile.php?id=100004909995798" target="_blank"><i class="fa fa-facebook w3-margin  w3-opacity "></i></a>
+    <a href="https://twitter.com/aydinmenderes6" target="_blank"><i class="fa fa-twitter w3-margin  w3-opacity "></i></a>
+    <a href="https://www.instagram.com/aydnmenderes" target="_blank"><i class="fa fa-instagram w3-margin  w3-opacity "></i></a>
+</div>
+
+</div>
+</div>
+
+</div>
+
+</div>
+
+
+
+</div>
+</div>
+</div>
+
+<!-- İletişim Modal-->
+<div id="iletisim" class="w3-modal">
+    <div class="w3-modal-content w3-animate-zoom w3-card-24">
+        <header class="w3-container w3-deep-orange">
+            <span onclick="document.getElementById('iletisim').style.display='none'" class="w3-closebtn">&times;
+</span>
+<h2>Bize Ulaşın</h2>
+</header>
+<div class="w3-container w3-theme-light">
+    <ul class="w3-ul w3-margin">
+        <li class="w3-padding-16">
+
+            <i class="fa fa-whatsapp  w3-xxlarge w3-left w3-margin-right"></i>
+            <span class="w3-large w3-margin-left"> 05385194947  </span>
+
+        </li>
+        <li class="w3-padding-16">
+            <a href="mailto:info@radyoalone.com">
+                <i class="fa fa-envelope-o  w3-xxlarge w3-left w3-margin-right"></i>
+                <span class="w3-large w3-margin-left"> info@radyoalone.com  </span>
+            </a>
+        </li>
+        <li class="w3-padding-16">
+            <a href="http://instagram.com/radyoalone" target="_blank">
+                <i class="fa fa-instagram  w3-xxlarge w3-left w3-margin-right"></i>
+                <span class="w3-large w3-margin-left"> radyoalone  </span>
+            </a>
+        </li>
+        <li class="w3-padding-16">
+            <a href="https://www.facebook.com/radyoalone" target="_blank">
+                <i class="fa fa-facebook-official w3-xxlarge w3-left w3-margin-right"></i>
+                <span class="w3-large w3-margin-left"> /radyoalone  </span>
+            </a>
+        </li>
+        <li class="w3-padding-16">
+            <a href="https://www.twitter.com/RadioAlone1" target="_blank">
+                <i class="fa fa-twitter w3-xxlarge w3-left w3-margin-right"></i>
+                <span class="w3-large w3-margin-left"> /RadioAlone1  </span>
+            </a>
+        </li>
+    </ul>
+</div>
+</div>
+</div>
+<!--Start of Tawk.to Script-->
+<script type="text/javascript">
+                           var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+                           (function () {
+                               var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+                               s1.async = true;
+                               s1.src = 'https://embed.tawk.to/571f96090ff842a53e1bb589/default';
+                               s1.charset = 'UTF-8';
+                               s1.setAttribute('crossorigin', '*');
+                               s0.parentNode.insertBefore(s1, s0);
+                           })();
+</script>
+<!--End of Tawk.to Script-->
+
+<script>
+        document.getElementById("firstGun").click();
+        function akisGunu(evt, gun) {
+            var i;
+            var x = document.getElementsByClassName("gun");
+            for (i = 0; i < x.length; i++) {
+                x[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("gunlink");
+            for (i = 0; i < x.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" w3-theme", "");
+            }
+
+            document.getElementById(gun).style.display = "block";
+            evt.currentTarget.className += " w3-theme";
+
+        }
     </script>
+
 
 </body>
 

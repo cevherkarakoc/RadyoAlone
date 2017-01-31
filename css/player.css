@@ -1,0 +1,38 @@
+.jp-audio-stream{
+		width:80px;
+	}
+	.jp-audio .jp-interface, .jp-audio-stream .jp-interface{
+		height:80px;
+	}
+	.jp-audio-stream .jp-controls{
+		top:10px;
+		left:10px;
+	}
+	
+	.jp-interface{
+		background-color:rgba(0, 0, 0, 0);
+		
+	}
+	
+	.jp-audio, .jp-audio-stream, .jp-video {
+    background-color: rgba(0, 0, 0, 0);
+	border: none;
+}
+
+.jp-play{
+	width: 60px;
+	height: 60px;
+	background: url("../images/play.png");
+}
+
+.jp-play:focus{
+	background: url("../images/play.png")
+}
+
+.jp-state-playing .jp-play{
+	background: url("../images/pause.png")
+}
+
+.jp-state-playing .jp-play:focus{
+	background: url("../images/pause.png")
+}
