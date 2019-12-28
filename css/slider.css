@@ -22,7 +22,7 @@
     color: transparent;
     background-size: cover;
     background-position: 50% 50%;
-    background-repeat: none;
+    background-repeat: no-repeat;
     opacity: 0;
     z-index: 0;
 	-webkit-backface-visibility: hidden;
@@ -39,7 +39,7 @@
     line-height: 200px;
 	color: rgba(169,3,41, 0.8);
 }
-.cb-slideshow li:nth-child(1) span { background-image: url(../images/slide/verda.jpg) }
+.cb-slideshow li:nth-child(1) span { background-image: url(../images/slide/main.jpeg) }
 .cb-slideshow li:nth-child(2) span {
     background-image: url(../images/slide/verda.jpg);
     -webkit-animation-delay: 6s;
@@ -49,7 +49,7 @@
     animation-delay: 6s;
 }
 .cb-slideshow li:nth-child(3) span {
-    background-image: url(../images/slide/verda.jpg);
+    background-image: url(../images/slide/main.jpeg);
     -webkit-animation-delay: 12s;
     -moz-animation-delay: 12s;
     -o-animation-delay: 12s;
